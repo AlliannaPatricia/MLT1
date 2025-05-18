@@ -1,139 +1,138 @@
-/* Reset */
-* {
+/* style.css - Sakura Theme for Lab Tasks */
+
+/* Reset & Base */
+{
+
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* Body and Container */
 body {
-  background: linear-gradient(to bottom, #ffe4e1, #fff0f5);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #6b3e3e;
-  overflow-x: hidden;
-  position: relative;
+  background: linear-gradient(135deg, #ffe4e6, #fff0f6);
+  color: #6b495f;
   min-height: 100vh;
-  padding-bottom: 2rem;
+  position: relative;
+  padding: 2rem 1rem;
 }
 
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 1rem;
-  background-color: rgba(255, 240, 245, 0.85);
-  border-radius: 10px;
-  box-shadow: 0 0 15px #f4c2c2;
+  background-color: rgba(255, 240, 246, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(255, 183, 197, 0.3);
+  padding: 2rem 3rem;
+  box-sizing: border-box;
 }
 
+/* Headings */
 h1 {
-  font-size: 2.5rem;
+  font-weight: 700;
+  font-size: 2.4rem;
   margin-bottom: 1rem;
+  color: #d6336c; /* cherry blossom pink */
   text-align: center;
-  color: #d66b81;
+  text-shadow: 1px 1px 3px #f9c6d3;
 }
 
 h2 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
-  color: #b05065;
-  border-bottom: 2px solid #f7a8a8;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem 0;
+  color: #bc477b;
+  border-bottom: 2px solid #f9c6d3;
   padding-bottom: 0.3rem;
 }
 
+/* Paragraphs */
+p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #7a536d;
+}
+
+/* Lists */
 ul {
-  margin-left: 1.2rem;
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #7a536d;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Code blocks */
+code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #ffd6e8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #a61e4d;
+}
+
+/* Images */
+img {
+  display: block;
+  max-width: 100%;
+  margin: 1rem auto 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(255, 183, 197, 0.4);
+}
+
+/* Section styling */
+section {
+  margin-top: 1rem;
+}
+
+/* Screenshots container */
+.screenshots h2 {
+  margin-top: 2.5rem;
+  font-size: 1.4rem;
+  color: #c7366e;
+  text-align: center;
 }
 
 .screenshots img {
-  width: 100%;
-  max-width: 700px;
-  display: block;
-  margin: 1rem auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #f7a8a8;
+  margin-bottom: 2rem;
 }
 
-/* Sakura Animation */
-
-.sakura-animation {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background-image:
-    url('images/sakura-petal.png'); /* use a sakura petal PNG with transparency */
-  background-repeat: repeat;
-  animation: sakuraFall 15s linear infinite;
-  opacity: 0.6;
+/* Links (if any) */
+a {
+  color: #d6336c;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-@keyframes sakuraFall {
-  0% {
-    background-position: 0 -100px;
+a:hover {
+  color: #a61e4d;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1.5rem;
   }
-  100% {
-    background-position: 0 100vh;
+
+  h1 {
+    font-size: 1.8rem;
   }
-}
 
-/* Sakura trailing effect with petals falling (using pseudo elements) */
-
-.sakura-animation::before,
-.sakura-animation::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-image: url('images/sakura-petal.png');
-  background-size: cover;
-  opacity: 0.7;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.sakura-animation::before {
-  top: -40px;
-  left: 20%;
-  animation-name: fall1;
-  animation-duration: 12s;
-}
-
-.sakura-animation::after {
-  top: -40px;
-  left: 70%;
-  animation-name: fall2;
-  animation-duration: 15s;
-}
-
-@keyframes fall1 {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.7;
+  h2 {
+    font-size: 1.4rem;
   }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
+
+  p, li {
+    font-size: 1rem;
   }
 }
-
-@keyframes fall2 {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(100vh) rotate(-360deg);
-    opacity: 0;
-  }
-}
-
-/* Audio controls hidden */
-
 audio {
   display: none;
 }
