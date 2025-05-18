@@ -1,22 +1,23 @@
-# Finals Lab Task 1 - MySQL Basics (Multi-Level Company)
-In this lab activity, I worked on making a database for a company that has many levels using MySQL. The goal was to create tables, add data, and run SQL queries to get the information needed. Here are the steps I followed:
-
-- Created a new database
-  - Used CREATE DATABASE to make the database.
-  -Used USE to select the database.
-- Created tables
-  - Used CREATE TABLE to make tables (e.g., Employees, Departments).
-  - Added columns with correct data types (e.g., INT, VARCHAR, DATE).
-  - Set PRIMARY KEY and FOREIGN KEY for relationships.
-- Checked the table structures
-  - Used DESCRIBE or viewed the structure in phpMyAdmin to review the design of each table.
-## Here's the screenshot of my output for the Employees table (See screenshot)
-![Sample Output](images/employees.png)
-## Here's the screenshot of my output for the Departments table (See screenshot)
-![Sample Output](images/departments.png)
-## Here's the screenshot of my output for the Employee Departments table (See screenshot)
-![Sample Output](images/employee_departments.png)
-## Here's the screenshot of my output for the Employee Projects table (See screenshot)
-![Sample Output](images/employee_projects.png)
-## Here's the screenshot of my output for the Managers table (See screenshot)
-![Sample Output](images/Managers.png)
+# Midterm Lab Task 1 - Data Cleaning Using Excel
+In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following these steps:
+## Data Cleaning Process
+- Open the raw file
+- Trim extra spaces
+- Adjust column and row width and height for better readability
+- Create a TransID and ID, then drag down to generate sequential numbers.
+- Seperate Customer Name into First Name and Last Name 
+- Assign an ID to those who need a ID
+- Remove NULL values
+## Normalization 
+- Create a NEW sheet for normalization 
+- Categorize data into separate groups (e.g., Rating)
+- Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)
+- Remove duplicates and sort the data
+- Copy the normalized values back into the original data
+- Drag down to apply the changes based on the new normalized sheet
+## Here's the screenshot of my output before I started data cleaning (See screenshot
+![Sample Output](images/One.png)
+## Here's the screenshot of my output before after I started data cleaning (See screenshot
+![Sample Output](images/Onee.PNG)
+## Here's the Physical Data Model
+![Sample Output](images/PhysicalDataModel.jpg)
