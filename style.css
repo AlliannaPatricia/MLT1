@@ -1,1 +1,51 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f8bbd0;
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #f48fb1;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #880e4f;
+}
+
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+main {
+  padding: 2rem;
+}
+
+section.task-description {
+  background-color: #fff0f5;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+section.screenshots img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 10px rgba(136, 14, 79, 0.2);
+}
+
+section h3 {
+  color: #ad1457;
+  margin-top: 2rem;
+}
 
