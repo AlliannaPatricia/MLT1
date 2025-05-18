@@ -1,51 +1,53 @@
 body {
+  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
-  color: #333;
-  margin: 0;
-  padding: 0;
+  background: #ffeef8;
+  color: #4a4a4a;
 }
 
-header {
-  background-color: #f8bbd0;
-  padding: 2rem;
-  text-align: center;
-  border-bottom: 2px solid #f48fb1;
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #fff0f5;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  color: #880e4f;
+h1, h2 {
+  color: #d36da3;
 }
 
-header p {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
+ul {
+  padding-left: 20px;
+  line-height: 1.6;
 }
 
-main {
-  padding: 2rem;
-}
-
-section.task-description {
-  background-color: #fff0f5;
-  padding: 1rem;
+.screenshots img {
+  max-width: 100%;
+  margin: 10px 0;
   border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-section.screenshots img {
+/* Sakura Petal Animation */
+.sakura-animation::before,
+.sakura-animation::after {
+  content: "";
+  position: fixed;
+  top: 0;
   width: 100%;
-  max-width: 700px;
-  border-radius: 8px;
-  margin: 1rem 0;
-  box-shadow: 0 4px 10px rgba(136, 14, 79, 0.2);
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url('https://pngimg.com/uploads/cherry_blossom/cherry_blossom_PNG86071.png');
+  background-size: 50px;
+  animation: fall 10s linear infinite;
 }
 
-section h3 {
-  color: #ad1457;
-  margin-top: 2rem;
+@keyframes fall {
+  0% {transform: translateY(-100px) rotate(0deg); opacity: 1;}
+  100% {transform: translateY(100vh) rotate(360deg); opacity: 0;}
 }
+
 
