@@ -6,6 +6,8 @@
   <title>Midterm Lab Task 1 - Data Cleaning Using Excel</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+
     canvas {
       position: fixed;
       top: 0;
@@ -13,11 +15,34 @@
       pointer-events: none;
       z-index: 1;
     }
+
+    body {
+      font-family: 'Sawarabi Mincho', serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 240, 246, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(255, 183, 197, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      to {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Falling Petals Canvas -->
   <canvas id="falling-petals-canvas"></canvas>
+
   <!-- Music -->
   <audio autoplay loop id="bg-music">
     <source src="assets/sakura-music.mp3" type="audio/mpeg">
@@ -128,30 +153,22 @@
   </script>
 
   <script>
-    // Sakura trail on mouse
+    // Sakura trail on mouse (matching falling sakura style)
     document.addEventListener('mousemove', function(e) {
-      const petal = document.createElement('div');
-      petal.textContent = '❀';
-      petal.style.position = 'fixed';
-      petal.style.left = e.pageX + 'px';
-      petal.style.top = e.pageY + 'px';
-      petal.style.fontSize = '20px';
-      petal.style.pointerEvents = 'none';
-      petal.style.opacity = 0.8;
-      petal.style.zIndex = 9999;
-      petal.style.animation = 'float 1s linear forwards';
-      document.body.appendChild(petal);
-      setTimeout(() => petal.remove(), 1000);
+      const trail = document.createElement('div');
+      trail.style.position = 'fixed';
+      trail.style.left = e.pageX + 'px';
+      trail.style.top = e.pageY + 'px';
+      trail.style.width = '12px';
+      trail.style.height = '12px';
+      trail.style.background = 'rgba(255,182,193,0.8)';
+      trail.style.borderRadius = '50%';
+      trail.style.pointerEvents = 'none';
+      trail.style.zIndex = 9999;
+      trail.style.animation = 'float 1.2s ease-out forwards';
+      document.body.appendChild(trail);
+      setTimeout(() => trail.remove(), 1200);
     });
   </script>
-
-  <style>
-    @keyframes float {
-      to {
-        transform: translateY(-30px);
-        opacity: 0;
-      }
-    }
-  </style>
 </body>
 </html>
