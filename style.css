@@ -1,4 +1,6 @@
-/* Reset and base styles */
+/* style.css - Sakura Theme for Lab Tasks */
+
+/* Reset & Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,110 +18,6 @@ body {
   overflow-x: hidden;
 }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: rgba(255, 240, 246, 0.9);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(255, 183, 197, 0.3);
-  padding: 2rem 3rem;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 10; /* above canvas */
-}
-
-/* Headings */
-h1 {
-  font-weight: 700;
-  font-size: 2.4rem;
-  margin-bottom: 1rem;
-  color: #d6336c; /* cherry blossom pink */
+header.task-header {
   text-align: center;
-  text-shadow: 1px 1px 3px #f9c6d3;
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 1.8rem;
-  margin: 2rem 0 1rem 0;
-  color: #bc477b;
-  border-bottom: 2px solid #f9c6d3;
-  padding-bottom: 0.3rem;
-}
-
-ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: #7a536d;
-}
-
-li {
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  margin: 1rem auto 2rem auto;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(255, 183, 197, 0.4);
-}
-
-footer {
-  margin-top: 3rem;
-  text-align: center;
-}
-
-.task-links li {
-  margin: 0.5rem 0;
-}
-
-.task-links a {
-  color: #d6336c;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.task-links a:hover {
-  color: #a61e4d;
-  text-decoration: underline;
-}
-
-/* Canvas styling */
-.background-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.foreground-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .container {
-    padding: 1.5rem 1.5rem;
-  }
-  h1 {
-    font-size: 1.8rem;
-  }
-  h2 {
-    font-size: 1.4rem;
-  }
-  p, li {
-    font-size: 1rem;
-  }
-}
+  margin-bottom: 2
