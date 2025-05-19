@@ -2,59 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Midterm Lab Task 1 - Data Cleaning Using Excel</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Sakura petals falling canvas -->
   <canvas id="sakura-canvas"></canvas>
 
+  <!-- Background music -->
   <audio autoplay loop>
     <source src="assets/sakura-music.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
   <header class="task-header">
-    <h1>Data Cleaning Using Excel</h1>
+    <h1>Midterm Lab Task 1 - Data Cleaning Using Excel</h1>
+    <p>In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following these steps:</p>
   </header>
 
-  <section class="task-section">
-    <h2>Data Cleaning Process</h2>
-    <ul class="task-steps">
-      <li>Open the raw file</li>
-      <li>Trim extra spaces</li>
-      <li>Adjust column and row width and height for better readability</li>
-      <li>Create a TransID and ID, then drag down to generate sequential numbers</li>
-      <li>Separate Customer Name into First Name and Last Name</li>
-      <li>Assign an ID to those who need an ID</li>
-      <li>Remove NULL values</li>
-    </ul>
-  </section>
+  <main class="container">
 
-  <section class="task-section">
-    <h2>Normalization</h2>
-    <ul class="task-steps">
-      <li>Create a NEW sheet for normalization</li>
-      <li>Categorize data into separate groups (e.g., Rating)</li>
-      <li>Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)</li>
-      <li>Remove duplicates and sort the data</li>
-      <li>Copy the normalized values back into the original data</li>
-      <li>Drag down to apply the changes based on the new normalized sheet</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Data Cleaning Process</h2>
+      <ul>
+        <li>Open the raw file</li>
+        <li>Trim extra spaces</li>
+        <li>Adjust column and row width and height for better readability</li>
+        <li>Create a TransID and ID, then drag down to generate sequential numbers.</li>
+        <li>Separate Customer Name into First Name and Last Name</li>
+        <li>Assign an ID to those who need an ID</li>
+        <li>Remove NULL values</li>
+      </ul>
+    </section>
 
-  <section class="screenshots">
-    <h2>Before Data Cleaning</h2>
-    <img src="images/One.png" alt="Before Data Cleaning">
+    <section>
+      <h2>Normalization</h2>
+      <ul>
+        <li>Create a NEW sheet for normalization</li>
+        <li>Categorize data into separate groups (e.g., Rating)</li>
+        <li>Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)</li>
+        <li>Remove duplicates and sort the data</li>
+        <li>Copy the normalized values back into the original data</li>
+        <li>Drag down to apply the changes based on the new normalized sheet</li>
+      </ul>
+    </section>
 
-    <h2>After Data Cleaning</h2>
-    <img src="images/Onee.PNG" alt="After Data Cleaning">
+    <section class="screenshots">
+      <h2>Before Data Cleaning</h2>
+      <img src="images/One.png" alt="Before Data Cleaning" />
 
-    <h2>Physical Data Model</h2>
-    <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model">
-  </section>
+      <h2>After Data Cleaning</h2>
+      <img src="images/Onee.PNG" alt="After Data Cleaning" />
 
+      <h2>Physical Data Model</h2>
+      <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model" />
+    </section>
+
+  </main>
+
+  <!-- Sakura mouse trail script -->
   <script src="sakura-trail.js"></script>
+  <!-- Falling sakura petals script -->
   <script src="falling-petals.js"></script>
 </body>
 </html>
