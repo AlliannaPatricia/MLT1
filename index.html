@@ -58,11 +58,10 @@
 
     .petal-trail {
       position: fixed;
-      width: 15px;
-      height: 15px;
-      background: radial-gradient(circle, rgba(255,182,193,0.9) 40%, rgba(255,192,203,0.1) 70%);
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, rgba(255,182,193,0.8), rgba(255,192,203,0.2));
       border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      transform: rotate(45deg);
       pointer-events: none;
       z-index: 9999;
       animation: trail-fall 1.5s linear forwards;
@@ -78,34 +77,16 @@
         transform: translateY(40px) rotate(60deg);
       }
     }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin: 2rem 0 1rem;
-      font-size: 1.1rem;
-      color: #d6336c;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-
-    .back-link:hover {
-      transform: scale(1.05);
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
-  <!-- Falling Petals Canvas -->
   <canvas id="falling-petals-canvas"></canvas>
 
-  <!-- Music -->
   <audio autoplay loop id="bg-music">
     <source src="assets/sakura-music.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Task Container -->
   <div class="container">
     <header class="task-header">
       <h1>Midterm Lab Task 1</h1>
@@ -147,11 +128,8 @@
       <h2>Here's the Physical Data Model</h2>
       <img src="assets/PhysicalDataModel.jpg" alt="Physical Data Model">
     </section>
-
-    <a href="../index.html" class="back-link">← Back to Main Portfolio</a>
   </div>
 
-  <!-- Scripts -->
   <script>
     // Falling petals background
     const canvas = document.getElementById('falling-petals-canvas');
