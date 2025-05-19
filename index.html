@@ -16,6 +16,7 @@
       background: linear-gradient(135deg, #ffe4e6, #fff0f6);
       color: #6b495f;
       overflow-x: hidden;
+      position: relative;
     }
 
     canvas {
@@ -58,7 +59,7 @@
     }
 
     .petal-trail {
-      position: fixed;
+      position: absolute;
       width: 15px;
       height: 15px;
       background: radial-gradient(circle at 40% 40%, rgba(255,182,193,0.9), rgba(255,192,203,0.3));
@@ -90,8 +91,15 @@
     </header>
 
     <section class="task-section">
+      <h2>Overview</h2>
+      <p>
+        In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following a structured process.
+      </p>
+    </section>
+
+    <section class="task-section">
       <h2>Data Cleaning Process</h2>
-      <ul class="task-steps">
+      <ul>
         <li>Open the raw file</li>
         <li>Trim extra spaces</li>
         <li>Adjust column and row width and height for better readability</li>
@@ -104,7 +112,7 @@
 
     <section class="task-section">
       <h2>Normalization</h2>
-      <ul class="task-steps">
+      <ul>
         <li>Create a NEW sheet for normalization</li>
         <li>Categorize data into separate groups (e.g., Rating)</li>
         <li>Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)</li>
@@ -127,7 +135,7 @@
   </div>
 
   <script>
-    // Falling petals background
+    // Sakura falling petals
     const canvas = document.getElementById('falling-petals-canvas');
     const ctx = canvas.getContext('2d');
     let petals = [];
@@ -184,12 +192,12 @@
     initPetals();
     animatePetals();
 
-    // Mouse trail petals
+    // Mouse trail petals (scroll-independent)
     document.addEventListener('mousemove', function(e) {
       const trail = document.createElement('div');
       trail.className = 'petal-trail';
       trail.style.left = e.pageX + 'px';
-      trail.style.top = e.pageY + 'px';
+      trail.style.top = e.pageY + window.scrollY + 'px';
       document.body.appendChild(trail);
       setTimeout(() => trail.remove(), 1500);
     });
