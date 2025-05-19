@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,19 +8,18 @@
 </head>
 <body>
 
-  <!-- Sakura petals falling canvas -->
-  <canvas id="sakura-canvas"></canvas>
+  <!-- Background falling sakura petals -->
+  <canvas id="falling-petals-canvas"></canvas>
 
-  <!-- Background music (muted autoplay workaround + play button) -->
+  <!-- Audio element for background music -->
   <audio id="bg-music" loop>
     <source src="assets/sakura-music.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
-  <button id="music-toggle" aria-label="Toggle background music" title="Play/Pause music">🎵 Play Music</button>
 
+  <!-- Content -->
   <header class="task-header">
     <h1>Midterm Lab Task 1 - Data Cleaning Using Excel</h1>
-    <p>In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following these steps:</p>
   </header>
 
   <main class="container">
@@ -61,39 +60,39 @@
       <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model" />
     </section>
 
+    <!-- Example task links to trigger music -->
+    <nav>
+      <h2>Other Lab Tasks</h2>
+      <ul>
+        <li><a href="midterm-lab-task-2.html" class="task-link">Midterm Lab Task 2</a></li>
+        <li><a href="midterm-lab-task-3.html" class="task-link">Midterm Lab Task 3</a></li>
+      </ul>
+    </nav>
+
   </main>
 
-  <!-- Sakura mouse trail script -->
+  <!-- Sakura mouse trailing flowers -->
   <script src="sakura-trail.js"></script>
-  <!-- Falling sakura petals script -->
+
+  <!-- Sakura falling petals background -->
   <script src="falling-petals.js"></script>
 
-  <!-- Music toggle script -->
+  <!-- Music autoplay on task links -->
   <script>
     const music = document.getElementById('bg-music');
-    const btn = document.getElementById('music-toggle');
 
-    btn.addEventListener('click', () => {
-      if (music.paused) {
-        music.play();
-        btn.textContent = '🔈 Pause Music';
-      } else {
-        music.pause();
-        btn.textContent = '🎵 Play Music';
-      }
-    });
-
-    // Try to autoplay muted on load
-    window.addEventListener('load', () => {
-      music.muted = true;
-      music.play().then(() => {
-        // autoplay succeeded
-        music.muted = false;
-        music.pause();
-      }).catch(() => {
-        // autoplay blocked, user needs to press button
+    // When a link with class 'task-link' is clicked, play music automatically
+    document.querySelectorAll('.task-link').forEach(link => {
+      link.addEventListener('click', e => {
+        // Start music before navigating
+        if (music.paused) {
+          music.play().catch(() => {
+            // autoplay might fail if user hasn't interacted yet, but since user clicked link, should be OK
+          });
+        }
       });
     });
   </script>
+
 </body>
 </html>
