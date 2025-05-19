@@ -4,9 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Midterm Lab Task 1 - Data Cleaning Using Excel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Sawarabi Mincho', serif;
+      background: linear-gradient(135deg, #ffe4e6, #fff0f6);
+      color: #6b495f;
+    }
 
     canvas {
       position: fixed;
@@ -16,19 +25,35 @@
       z-index: 1;
     }
 
-    body {
-      font-family: 'Sawarabi Mincho', serif;
-    }
-
     .container {
-      max-width: 800px;
+      max-width: 960px;
       margin: 3rem auto;
-      padding: 2rem;
-      background-color: rgba(255, 240, 246, 0.9);
+      background-color: rgba(255, 240, 246, 0.95);
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(255, 183, 197, 0.3);
+      padding: 2.5rem 3rem;
       position: relative;
       z-index: 2;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #d6336c;
+      text-shadow: 1px 1px 2px #f9c6d3;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .screenshots img {
+      display: block;
+      margin: 1rem auto 2rem auto;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(255, 183, 197, 0.4);
     }
 
     @keyframes float {
@@ -52,7 +77,8 @@
   <!-- Task Container -->
   <div class="container">
     <header class="task-header">
-      <h1>Midterm Lab Task 1 - Data Cleaning Using Excel</h1>
+      <h1>Midterm Lab Task 1</h1>
+      <h2>Data Cleaning Using Excel</h2>
     </header>
 
     <section class="task-section">
@@ -81,13 +107,13 @@
     </section>
 
     <section class="screenshots">
-      <h2>Before Data Cleaning</h2>
+      <h2>Here's the screenshot of my output before I started data cleaning</h2>
       <img src="images/One.png" alt="Before Data Cleaning">
 
-      <h2>After Data Cleaning</h2>
+      <h2>Here's the screenshot of my output after I started data cleaning</h2>
       <img src="images/Onee.PNG" alt="After Data Cleaning">
 
-      <h2>Physical Data Model</h2>
+      <h2>Here's the Physical Data Model</h2>
       <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model">
     </section>
   </div>
@@ -153,22 +179,30 @@
   </script>
 
   <script>
-    // Sakura trail on mouse (matching falling sakura style)
+    // Sakura flower trail on mouse move
     document.addEventListener('mousemove', function(e) {
-      const trail = document.createElement('div');
-      trail.style.position = 'fixed';
-      trail.style.left = e.pageX + 'px';
-      trail.style.top = e.pageY + 'px';
-      trail.style.width = '12px';
-      trail.style.height = '12px';
-      trail.style.background = 'rgba(255,182,193,0.8)';
-      trail.style.borderRadius = '50%';
-      trail.style.pointerEvents = 'none';
-      trail.style.zIndex = 9999;
-      trail.style.animation = 'float 1.2s ease-out forwards';
-      document.body.appendChild(trail);
-      setTimeout(() => trail.remove(), 1200);
+      const flower = document.createElement('div');
+      flower.textContent = '❀';
+      flower.style.position = 'fixed';
+      flower.style.left = e.pageX + 'px';
+      flower.style.top = e.pageY + 'px';
+      flower.style.fontSize = '18px';
+      flower.style.pointerEvents = 'none';
+      flower.style.opacity = 0.8;
+      flower.style.zIndex = 9999;
+      flower.style.animation = 'float 1s linear forwards';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 1000);
     });
   </script>
+
+  <style>
+    @keyframes float {
+      to {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+    }
+  </style>
 </body>
 </html>
