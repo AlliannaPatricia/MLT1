@@ -1,68 +1,82 @@
-// Sakura mouse trail effect
+(() => {
+  const canvas = document.getElementById('sakura-trail-canvas');
+  const ctx = canvas.getContext('2d');
 
-const canvas = document.getElementById('sakura-canvas');
-const ctx = canvas.getContext('2d');
+  let width, height;
+  let petals = [];
 
-let width, height;
-function resize() {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener('resize', resize);
+  const petalImg = new Image();
+  petalImg.src = 'assets/sakura-petal.png';
 
-const petals = [];
-
-class Petal {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.size = Math.random() * 8 + 4;
-    this.speedX = (Math.random() - 0.5) * 1.5;
-    this.speedY = Math.random() * -1 - 1;
-    this.opacity = 1;
-    this.angle = Math.random() * 2 * Math.PI;
-    this.spin = (Math.random() - 0.5) * 0.1;
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
   }
 
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.angle += this.spin;
-    this.opacity -= 0.02;
-    if (this.opacity < 0) this.opacity = 0;
+  window.addEventListener('resize', resize);
+  resize();
+
+  class TrailPetal {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.size = 15 + Math.random() * 10;
+      this.opacity = 1;
+      this.fadeSpeed = 0.02 + Math.random() * 0.02;
+      this.angle = Math.random() * 2 * Math.PI;
+      this.angularSpeed = (Math.random() - 0.5) * 0.1;
+      this.speedY = 0.5 + Math.random() * 1;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+    }
+
+    update() {
+      this.opacity -= this.fadeSpeed;
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.angle += this.angularSpeed;
+    }
+
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = this.opacity;
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.drawImage(petalImg, -this.size / 2, -this.size / 2, this.size, this.size);
+      ctx.restore();
+    }
   }
 
-  draw() {
-    ctx.save();
-    ctx.translate(this.x, this.y);
-    ctx.rotate(this.angle);
-    ctx.fillStyle = `rgba(214, 102, 143, ${this.opacity})`;
-    ctx.beginPath();
-    ctx.ellipse(0, 0, this.size, this.size / 2, 0, 0, 2 * Math.PI);
-    ctx.fill();
-    ctx.restore();
-  }
-}
-
-window.addEventListener('mousemove', e => {
-  for (let i = 0; i < 3; i++) {
-    petals.push(new Petal(e.clientX + (Math.random() - 0.5) * 20, e.clientY + (Math.random() - 0.5) * 20));
-  }
-});
-
-function animate() {
-  ctx.clearRect(0, 0, width, height);
-
-  for (let i = petals.length - 1; i >= 0; i--) {
-    let p = petals[i];
-    p.update();
-    p.draw();
-
-    if (p.opacity <= 0) petals.splice(i, 1);
+  function addPetal(x, y) {
+    petals.push(new TrailPetal(x, y));
+    if (petals.length > 100) petals.shift(); // Limit petals count to avoid lag
   }
 
-  requestAnimationFrame(animate);
-}
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    petals.forEach((petal, index) => {
+      petal.update();
+      if (petal.opacity <= 0) petals.splice(index, 1);
+      else petal.draw();
+    });
+    requestAnimationFrame(animate);
+  }
 
-animate();
+  petalImg.onload = () => {
+    animate();
+  };
+
+  // Add petals on mouse move and click
+  window.addEventListener('mousemove', e => addPetal(e.clientX, e.clientY));
+  window.addEventListener('click', e => addPetal(e.clientX, e.clientY));
+
+  // Add petals on scroll (using scroll position to add random petals)
+  window.addEventListener('scroll', () => {
+    // Get random position on screen width, fixed y near viewport bottom for trailing effect
+    const x = Math.random() * window.innerWidth;
+    const y = window.innerHeight - 10;
+    addPetal(x, y);
+  });
+
+})();
