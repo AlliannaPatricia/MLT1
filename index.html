@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Midterm Lab Task 1 - Data Cleaning Using Excel</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -17,14 +16,6 @@
       color: #6b495f;
       overflow-x: hidden;
       position: relative;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 1;
     }
 
     .container {
@@ -49,7 +40,7 @@
       line-height: 1.6;
     }
 
-    .screenshots img {
+    img {
       display: block;
       margin: 1rem auto 2rem auto;
       width: 90%;
@@ -57,61 +48,30 @@
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(255, 183, 197, 0.4);
     }
-
-    .petal-trail {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background: radial-gradient(circle at 40% 40%, rgba(255,182,193,0.9), rgba(255,192,203,0.3));
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      pointer-events: none;
-      z-index: 9999;
-      animation: trail-fall 1.5s linear forwards;
-    }
-
-    @keyframes trail-fall {
-      0% {
-        opacity: 1;
-        transform: translateY(0) rotate(0deg);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(40px) rotate(60deg);
-      }
-    }
   </style>
 </head>
 <body>
-  <canvas id="falling-petals-canvas"></canvas>
-
   <div class="container">
-    <header class="task-header">
+    <header>
       <h1>Midterm Lab Task 1</h1>
       <h2>Data Cleaning Using Excel</h2>
     </header>
 
-    <section class="task-section">
-      <h2>Overview</h2>
-      <p>
-        In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following a structured process.
-      </p>
-    </section>
-
-    <section class="task-section">
-      <h2>Data Cleaning Process</h2>
+    <section>
+      <p>In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following these steps:</p>
+      
+      <h3>Data Cleaning Process</h3>
       <ul>
         <li>Open the raw file</li>
         <li>Trim extra spaces</li>
         <li>Adjust column and row width and height for better readability</li>
-        <li>Create a TransID and ID, then drag down to generate sequential numbers</li>
+        <li>Create a TransID and ID, then drag down to generate sequential numbers.</li>
         <li>Separate Customer Name into First Name and Last Name</li>
         <li>Assign an ID to those who need an ID</li>
         <li>Remove NULL values</li>
       </ul>
-    </section>
 
-    <section class="task-section">
-      <h2>Normalization</h2>
+      <h3>Normalization</h3>
       <ul>
         <li>Create a NEW sheet for normalization</li>
         <li>Categorize data into separate groups (e.g., Rating)</li>
@@ -122,85 +82,16 @@
       </ul>
     </section>
 
-    <section class="screenshots">
-      <h2>Here's the screenshot of my output before I started data cleaning</h2>
-      <img src="images/One.png" alt="Before Data Cleaning">
+    <section>
+      <h2>Before Data Cleaning (Raw Data)</h2>
+      <img src="images/One.png" alt="Before Data Cleaning Screenshot" />
 
-      <h2>Here's the screenshot of my output after I started data cleaning</h2>
-      <img src="images/Onee.PNG" alt="After Data Cleaning">
+      <h2>After Data Cleaning</h2>
+      <img src="images/Onee.PNG" alt="After Data Cleaning Screenshot" />
 
-      <h2>Here's the Physical Data Model</h2>
-      <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model">
+      <h2>Physical Data Model</h2>
+      <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model Diagram" />
     </section>
   </div>
-
-  <script>
-    // Sakura falling petals
-    const canvas = document.getElementById('falling-petals-canvas');
-    const ctx = canvas.getContext('2d');
-    let petals = [];
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-
-    class Petal {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * -canvas.height;
-        this.size = Math.random() * 10 + 5;
-        this.speed = Math.random() * 2 + 1;
-        this.angle = Math.random() * 2 * Math.PI;
-      }
-
-      update() {
-        this.y += this.speed;
-        this.x += Math.sin(this.angle);
-        if (this.y > canvas.height) {
-          this.y = 0;
-          this.x = Math.random() * canvas.width;
-        }
-      }
-
-      draw() {
-        ctx.fillStyle = 'rgba(255,182,193,0.8)';
-        ctx.beginPath();
-        ctx.ellipse(this.x, this.y, this.size, this.size / 2, this.angle, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function initPetals() {
-      petals = [];
-      for (let i = 0; i < 100; i++) {
-        petals.push(new Petal());
-      }
-    }
-
-    function animatePetals() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      petals.forEach(petal => {
-        petal.update();
-        petal.draw();
-      });
-      requestAnimationFrame(animatePetals);
-    }
-
-    initPetals();
-    animatePetals();
-
-    // Mouse trail petals (scroll-independent)
-    document.addEventListener('mousemove', function(e) {
-      const trail = document.createElement('div');
-      trail.className = 'petal-trail';
-      trail.style.left = e.pageX + 'px';
-      trail.style.top = e.pageY + window.scrollY + 'px';
-      document.body.appendChild(trail);
-      setTimeout(() => trail.remove(), 1500);
-    });
-  </script>
 </body>
 </html>
