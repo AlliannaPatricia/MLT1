@@ -7,88 +7,56 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Background Falling Petals -->
+  <canvas id="falling-petals-canvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 0;"></canvas>
 
-  <!-- Falling Sakura petals background canvas -->
-  <canvas id="falling-petals-canvas" class="background-canvas"></canvas>
+  <!-- Mouse Trailing Petals -->
+  <canvas id="sakura-trail-canvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 10;"></canvas>
 
-  <!-- Mouse trailing sakura petals canvas -->
-  <canvas id="sakura-trail-canvas" class="foreground-canvas"></canvas>
+  <!-- Background Music -->
+  <audio id="bg-music" src="assets/sakura-music.mp3" autoplay loop></audio>
 
-  <!-- Background music -->
-  <audio id="bg-music" loop>
-    <source src="assets/sakura-music.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
+  <header class="task-header">
+    <h1>Midterm Lab Task 1 - Data Cleaning Using Excel</h1>
+  </header>
 
-  <div class="container">
-    <header class="task-header">
-      <h1>Midterm Lab Task 1 - Data Cleaning Using Excel</h1>
-      <p>In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following these steps:</p>
-    </header>
+  <section class="task-section">
+    <h2>Data Cleaning Process</h2>
+    <ul>
+      <li>Open the raw file</li>
+      <li>Trim extra spaces</li>
+      <li>Adjust column and row width and height for better readability</li>
+      <li>Create a TransID and ID, then drag down to generate sequential numbers</li>
+      <li>Separate Customer Name into First Name and Last Name</li>
+      <li>Assign an ID to those who need an ID</li>
+      <li>Remove NULL values</li>
+    </ul>
+  </section>
 
-    <section class="task-section">
-      <h2>Data Cleaning Process</h2>
-      <ul>
-        <li>Open the raw file</li>
-        <li>Trim extra spaces</li>
-        <li>Adjust column and row width and height for better readability</li>
-        <li>Create a TransID and ID, then drag down to generate sequential numbers.</li>
-        <li>Separate Customer Name into First Name and Last Name</li>
-        <li>Assign an ID to those who need an ID</li>
-        <li>Remove NULL values</li>
-      </ul>
-    </section>
+  <section class="task-section">
+    <h2>Normalization</h2>
+    <ul>
+      <li>Create a NEW sheet for normalization</li>
+      <li>Categorize data into separate groups (e.g., Rating)</li>
+      <li>Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)</li>
+      <li>Remove duplicates and sort the data</li>
+      <li>Copy the normalized values back into the original data</li>
+      <li>Drag down to apply the changes based on the new normalized sheet</li>
+    </ul>
+  </section>
 
-    <section class="task-section">
-      <h2>Normalization</h2>
-      <ul>
-        <li>Create a NEW sheet for normalization</li>
-        <li>Categorize data into separate groups (e.g., Rating)</li>
-        <li>Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)</li>
-        <li>Remove duplicates and sort the data</li>
-        <li>Copy the normalized values back into the original data</li>
-        <li>Drag down to apply the changes based on the new normalized sheet</li>
-      </ul>
-    </section>
+  <section class="screenshots">
+    <h2>Before Data Cleaning</h2>
+    <img src="images/One.png" alt="Before Data Cleaning" />
 
-    <section class="screenshots">
-      <h2>Before Data Cleaning</h2>
-      <img src="images/One.png" alt="Before Data Cleaning" />
+    <h2>After Data Cleaning</h2>
+    <img src="images/Onee.PNG" alt="After Data Cleaning" />
 
-      <h2>After Data Cleaning</h2>
-      <img src="images/Onee.PNG" alt="After Data Cleaning" />
-
-      <h2>Physical Data Model</h2>
-      <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model" />
-    </section>
-
-    <footer>
-      <h2>Other Midterm Lab Tasks</h2>
-      <ul class="task-links">
-        <li><a href="midterm-lab-task-2.html" class="task-link">Midterm Lab Task 2 - Data Cleaning & Transformation using POWER QUERY</a></li>
-        <li><a href="midterm-lab-task-3.html" class="task-link">Midterm Lab Task 3 - Another Task Title</a></li>
-      </ul>
-    </footer>
-  </div>
+    <h2>Physical Data Model</h2>
+    <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model" />
+  </section>
 
   <script src="falling-petals.js"></script>
   <script src="sakura-trail.js"></script>
-  <script>
-    const bgMusic = document.getElementById('bg-music');
-
-    // Play music automatically on page load
-    window.addEventListener('load', () => {
-      bgMusic.play().catch(() => {
-        // autoplay might be blocked, so show play button or ignore
-      });
-    });
-
-    // Play music automatically when clicking task links
-    document.querySelectorAll('.task-link').forEach(link => {
-      link.addEventListener('click', () => {
-        bgMusic.play();
-      });
-    });
-  </script>
 </body>
 </html>
