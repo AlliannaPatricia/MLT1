@@ -1,87 +1,128 @@
-body {
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff0f5;
-  color: #333;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffe4e6, #fff0f6);
+  color: #6b495f;
+  min-height: 100vh;
+  padding: 2rem 1rem;
   position: relative;
   overflow-x: hidden;
 }
 
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(255, 240, 246, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(255, 183, 197, 0.3);
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+  z-index: 10;
+  position: relative;
+}
+
+/* Header */
 .task-header {
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
   text-align: center;
-  padding: 2rem;
-  background: rgba(255, 240, 245, 0.8);
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
-  margin: 2rem auto;
-  max-width: 800px;
-  backdrop-filter: blur(5px);
+  color: #d6336c;
+  text-shadow: 1px 1px 3px #f9c6d3;
+  position: relative;
+  z-index: 10;
 }
 
 .task-header h1 {
-  font-size: 2.5rem;
-  color: #d63384;
-  font-family: 'Segoe UI', cursive;
-  transition: transform 0.3s ease;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.task-header h1:hover {
-  transform: scale(1.05);
+.task-header p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #7a536d;
 }
 
-.task-section {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  background: #ffe4ec;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(220, 20, 60, 0.1);
+/* Headings */
+h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem 0;
+  color: #bc477b;
+  border-bottom: 2px solid #f9c6d3;
+  padding-bottom: 0.3rem;
 }
 
-.task-section h2 {
-  color: #c2185b;
-  margin-bottom: 1rem;
+/* Lists */
+ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #7a536d;
+  font-size: 1.1rem;
 }
 
-.task-steps {
-  padding-left: 1.5rem;
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
 }
 
-.task-steps li {
-  margin-bottom: 0.6rem;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.task-steps li::before {
-  content: "🌸";
-  position: absolute;
-  left: 0;
-}
-
-.screenshots {
-  max-width: 800px;
-  margin: 2rem auto;
-  text-align: center;
-  padding: 1rem;
-}
-
+/* Screenshots */
 .screenshots h2 {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   font-size: 1.5rem;
-  color: #b71c1c;
+  color: #c7366e;
+  text-align: center;
 }
 
 .screenshots img {
+  display: block;
   max-width: 100%;
-  height: auto;
-  border: 3px solid #f8bbd0;
-  border-radius: 10px;
-  margin-top: 1rem;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
-  transition: transform 0.3s ease;
+  margin: 1rem auto 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(255, 183, 197, 0.4);
 }
 
-.screenshots img:hover {
-  transform: scale(1.03);
+/* Audio styling */
+audio {
+  display: none;
+}
+
+/* Canvas for sakura petals */
+#sakura-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .task-header h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  ul {
+    font-size: 1rem;
+  }
 }
