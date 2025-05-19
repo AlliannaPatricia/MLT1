@@ -1,3 +1,4 @@
+<!-- Midterm Lab Task 1 - Data Cleaning Using Excel -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,13 @@
       overflow-x: hidden;
       position: relative;
     }
-
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
     .container {
       max-width: 960px;
       margin: 3rem auto;
@@ -28,19 +35,16 @@
       position: relative;
       z-index: 2;
     }
-
     h1, h2 {
       text-align: center;
       color: #d6336c;
       text-shadow: 1px 1px 2px #f9c6d3;
     }
-
     ul {
       padding-left: 1.5rem;
       line-height: 1.6;
     }
-
-    img {
+    .screenshots img {
       display: block;
       margin: 1rem auto 2rem auto;
       width: 90%;
@@ -51,46 +55,45 @@
   </style>
 </head>
 <body>
+  <canvas id="falling-petals-canvas"></canvas>
   <div class="container">
     <header>
       <h1>Midterm Lab Task 1</h1>
       <h2>Data Cleaning Using Excel</h2>
     </header>
-
     <section>
-      <p>In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following these steps:</p>
-      
-      <h3>Data Cleaning Process</h3>
+      <p>
+        In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following these steps:
+      </p>
+      <h2>Data Cleaning Process</h2>
       <ul>
         <li>Open the raw file</li>
         <li>Trim extra spaces</li>
         <li>Adjust column and row width and height for better readability</li>
-        <li>Create a TransID and ID, then drag down to generate sequential numbers.</li>
+        <li>Create a TransID and ID, then drag down to generate sequential numbers</li>
         <li>Separate Customer Name into First Name and Last Name</li>
         <li>Assign an ID to those who need an ID</li>
         <li>Remove NULL values</li>
       </ul>
-
-      <h3>Normalization</h3>
+      <h2>Normalization</h2>
       <ul>
-        <li>Create a NEW sheet for normalization</li>
+        <li>Create a new sheet for normalization</li>
         <li>Categorize data into separate groups (e.g., Rating)</li>
-        <li>Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)</li>
+        <li>Identify fields that need normalization and assign numerical values (e.g., 1 to 4)</li>
         <li>Remove duplicates and sort the data</li>
         <li>Copy the normalized values back into the original data</li>
         <li>Drag down to apply the changes based on the new normalized sheet</li>
       </ul>
     </section>
+    <section class="screenshots">
+      <h2>Here's the screenshot of my output before I started data cleaning</h2>
+      <img src="images/One.png" alt="Before Cleaning" />
 
-    <section>
-      <h2>Before Data Cleaning (Raw Data)</h2>
-      <img src="images/One.png" alt="Before Data Cleaning Screenshot" />
+      <h2>Here's the screenshot after I cleaned the data</h2>
+      <img src="images/Onee.PNG" alt="After Cleaning" />
 
-      <h2>After Data Cleaning</h2>
-      <img src="images/Onee.PNG" alt="After Data Cleaning Screenshot" />
-
-      <h2>Physical Data Model</h2>
-      <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model Diagram" />
+      <h2>Here's the Physical Data Model</h2>
+      <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model" />
     </section>
   </div>
 </body>
