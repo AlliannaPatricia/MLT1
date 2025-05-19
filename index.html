@@ -2,94 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MLT1 - Data Cleaning Using Excel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Midterm Lab Task 1 - Data Cleaning Using Excel</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="sakura-falling"></canvas>
-  <div class="sakura-animation"></div>
-  <main class="container">
-    <h1>Midterm Lab Task 1 - Data Cleaning Using Excel</h1>
-    <p>In this lab activity, I worked on cleaning and preparing a messy dataset in Excel. The goal was to make the data organized and accurate by following these steps:</p>
+  <canvas id="sakura-canvas"></canvas>
 
-    <section>
-      <h2>Data Cleaning Process</h2>
-      <ul>
-        <li>Open the raw file</li>
-        <li>Trim extra spaces</li>
-        <li>Adjust column and row width and height for better readability</li>
-        <li>Create a TransID and ID, then drag down to generate sequential numbers</li>
-        <li>Separate Customer Name into First Name and Last Name</li>
-        <li>Assign an ID to those who need an ID</li>
-        <li>Remove NULL values</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Normalization</h2>
-      <ul>
-        <li>Create a NEW sheet for normalization</li>
-        <li>Categorize data into separate groups (e.g., Rating)</li>
-        <li>Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)</li>
-        <li>Remove duplicates and sort the data</li>
-        <li>Copy the normalized values back into the original data</li>
-        <li>Drag down to apply the changes based on the new normalized sheet</li>
-      </ul>
-    </section>
-
-    <section class="screenshots">
-      <h2>Here's the screenshot of my output before I started data cleaning (See screenshot)</h2>
-      <img src="images/One.png" alt="Before Data Cleaning Screenshot" />
-
-      <h2>Here's the screenshot of my output after I started data cleaning (See screenshot)</h2>
-      <img src="images/Onee.PNG" alt="After Data Cleaning Screenshot" />
-
-      <h2>Here's the Physical Data Model</h2>
-      <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model Screenshot" />
-    </section>
-  </main>
-
-  <!-- Sakura Falling Animation Script -->
-  <script src="https://cdn.jsdelivr.net/gh/lgarron/sakura/sakura.js"></script>
-  <script>
-    const sakura = new Sakura('body', {
-      colors: [
-        {
-          gradientColorStart: 'rgba(255, 183, 197, 0.9)',
-          gradientColorEnd: 'rgba(255, 197, 208, 0.9)',
-          gradientColorDegree: 120
-        }
-      ],
-      maxSize: 14,
-      minSize: 9,
-      fallSpeed: 1.2
-    });
-  </script>
-
-  <!-- Sakura Trail Animation -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const trail = document.createElement("div");
-      trail.className = "sakura-trail";
-      document.body.appendChild(trail);
-
-      document.addEventListener("mousemove", function(e) {
-        const petal = document.createElement("div");
-        petal.className = "sakura-petal";
-        petal.style.left = `${e.pageX}px`;
-        petal.style.top = `${e.pageY}px`;
-        document.body.appendChild(petal);
-
-        setTimeout(() => petal.remove(), 1000);
-      });
-    });
-  </script>
-
-  <!-- Background Music -->
   <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c73b93344.mp3?filename=serene-view-14757.mp3" type="audio/mpeg">
+    <source src="assets/sakura-music.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
+
+  <header class="task-header">
+    <h1>Data Cleaning Using Excel</h1>
+  </header>
+
+  <section class="task-section">
+    <h2>Data Cleaning Process</h2>
+    <ul class="task-steps">
+      <li>Open the raw file</li>
+      <li>Trim extra spaces</li>
+      <li>Adjust column and row width and height for better readability</li>
+      <li>Create a TransID and ID, then drag down to generate sequential numbers</li>
+      <li>Separate Customer Name into First Name and Last Name</li>
+      <li>Assign an ID to those who need an ID</li>
+      <li>Remove NULL values</li>
+    </ul>
+  </section>
+
+  <section class="task-section">
+    <h2>Normalization</h2>
+    <ul class="task-steps">
+      <li>Create a NEW sheet for normalization</li>
+      <li>Categorize data into separate groups (e.g., Rating)</li>
+      <li>Identify fields that need normalization (e.g., Rating) and assign numerical values (e.g., 1, 2, 3, 4)</li>
+      <li>Remove duplicates and sort the data</li>
+      <li>Copy the normalized values back into the original data</li>
+      <li>Drag down to apply the changes based on the new normalized sheet</li>
+    </ul>
+  </section>
+
+  <section class="screenshots">
+    <h2>Before Data Cleaning</h2>
+    <img src="images/One.png" alt="Before Data Cleaning">
+
+    <h2>After Data Cleaning</h2>
+    <img src="images/Onee.PNG" alt="After Data Cleaning">
+
+    <h2>Physical Data Model</h2>
+    <img src="images/PhysicalDataModel.jpg" alt="Physical Data Model">
+  </section>
+
+  <script src="sakura-trail.js"></script>
+  <script src="falling-petals.js"></script>
 </body>
 </html>
