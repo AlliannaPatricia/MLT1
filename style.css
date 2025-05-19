@@ -1,39 +1,38 @@
-/* Make canvas cover full viewport and behind everything */
-#sakura-canvas {
+/* Make the falling petals canvas full screen and behind everything */
+#falling-petals-canvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none;
+  pointer-events: none; /* so clicks pass through */
   z-index: 0;
 }
 
-/* Make sure your container and content is above petals */
-.task-header, .container, .screenshots {
+/* Make sure content is above petals */
+.task-header, .container, nav {
   position: relative;
   z-index: 10;
 }
 
-/* Music toggle button styling */
-#music-toggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background-color: #fce4ec;
-  border: 2px solid #d6336c;
+/* Style for your links */
+nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+nav ul li {
+  margin-bottom: 0.5rem;
+}
+
+nav ul li a.task-link {
   color: #d6336c;
-  border-radius: 50px;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-size: 1rem;
-  box-shadow: 0 3px 10px rgba(214, 51, 108, 0.4);
-  z-index: 20;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-#music-toggle:hover {
-  background-color: #d6336c;
-  color: #fff;
+nav ul li a.task-link:hover {
+  text-decoration: underline;
+  color: #a61e4d;
 }
-
