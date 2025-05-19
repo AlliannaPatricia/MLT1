@@ -1,38 +1,125 @@
-/* Make the falling petals canvas full screen and behind everything */
-#falling-petals-canvas {
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #ffe4e6, #fff0f6);
+  color: #6b495f;
+  min-height: 100vh;
+  position: relative;
+  padding: 2rem 1rem;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(255, 240, 246, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(255, 183, 197, 0.3);
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10; /* above canvas */
+}
+
+/* Headings */
+h1 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #d6336c; /* cherry blossom pink */
+  text-align: center;
+  text-shadow: 1px 1px 3px #f9c6d3;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem 0;
+  color: #bc477b;
+  border-bottom: 2px solid #f9c6d3;
+  padding-bottom: 0.3rem;
+}
+
+ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #7a536d;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 1rem auto 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(255, 183, 197, 0.4);
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.task-links li {
+  margin: 0.5rem 0;
+}
+
+.task-links a {
+  color: #d6336c;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.task-links a:hover {
+  color: #a61e4d;
+  text-decoration: underline;
+}
+
+/* Canvas styling */
+.background-canvas {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none; /* so clicks pass through */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
   z-index: 0;
 }
 
-/* Make sure content is above petals */
-.task-header, .container, nav {
-  position: relative;
-  z-index: 10;
+.foreground-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
 }
 
-/* Style for your links */
-nav ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-nav ul li {
-  margin-bottom: 0.5rem;
-}
-
-nav ul li a.task-link {
-  color: #d6336c;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-nav ul li a.task-link:hover {
-  text-decoration: underline;
-  color: #a61e4d;
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1.5rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  p, li {
+    font-size: 1rem;
+  }
 }
