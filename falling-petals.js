@@ -5,9 +5,8 @@
   let width, height;
   let petals = [];
 
-  // Petal image source - you can replace with your sakura petal image
   const petalImg = new Image();
-  petalImg.src = 'assets/sakura-petal.png';  // make sure this image exists
+  petalImg.src = 'assets/sakura-petal.png';
 
   function resize() {
     width = window.innerWidth;
@@ -21,8 +20,12 @@
 
   class Petal {
     constructor() {
+      this.reset();
+    }
+
+    reset() {
       this.x = Math.random() * width;
-      this.y = Math.random() * height;
+      this.y = Math.random() * height - height; // Start above canvas
       this.size = 20 + Math.random() * 20;
       this.speedY = 1 + Math.random() * 2;
       this.speedX = (Math.random() - 0.5) * 1;
@@ -36,12 +39,13 @@
       this.x += this.speedX;
       this.angle += this.angularSpeed;
 
-      if (this.y > height) {
+      if (this.y > height + this.size) {
+        this.reset();
         this.y = -this.size;
-        this.x = Math.random() * width;
       }
-      if (this.x > width) this.x = 0;
-      if (this.x < 0) this.x = width;
+
+      if (this.x > width + this.size) this.x = -this.size;
+      if (this.x < -this.size) this.x = width + this.size;
     }
 
     draw() {
@@ -64,10 +68,10 @@
 
   function animate() {
     ctx.clearRect(0, 0, width, height);
-    for (const petal of petals) {
+    petals.forEach(petal => {
       petal.update();
       petal.draw();
-    }
+    });
     requestAnimationFrame(animate);
   }
 
@@ -76,4 +80,3 @@
     animate();
   };
 })();
-
